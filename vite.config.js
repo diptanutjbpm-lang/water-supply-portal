@@ -22,6 +22,22 @@ export default defineConfig(
 
     let proxy = undefined
 
+    /*
+     * ========================================================
+     * LOCAL DEVELOPMENT PROXY
+     * ========================================================
+     *
+     * This is used only while running:
+     *
+     * npm run dev
+     * npm run preview
+     *
+     * It lets the local Vite app communicate with
+     * Google Apps Script without browser CORS problems.
+     *
+     * Cloudflare Pages production does NOT use this proxy.
+     * ========================================================
+     */
     if (appsScriptUrl) {
 
       const targetUrl =
@@ -30,6 +46,7 @@ export default defineConfig(
         )
 
       proxy = {
+
         '/tjb-api': {
 
           target:
@@ -57,22 +74,38 @@ export default defineConfig(
       ],
 
       /*
-       * IMPORTANT
+       * ======================================================
+       * IMPORTANT FOR CLOUDFLARE PAGES
+       * ======================================================
        *
-       * Repository must be named:
-       * water-supply-portal
+       * Production URL:
+       *
+       * https://water-supply-portal.pages.dev/
+       *
+       * Therefore assets must load from:
+       *
+       * /assets/...
+       *
+       * NOT:
+       *
+       * /water-supply-portal/assets/...
+       *
+       * ======================================================
        */
-      base:
-        '/water-supply-portal/',
+      base: '/',
 
       server:
         proxy
-          ? { proxy }
+          ? {
+              proxy,
+            }
           : undefined,
 
       preview:
         proxy
-          ? { proxy }
+          ? {
+              proxy,
+            }
           : undefined,
     }
   },
