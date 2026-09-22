@@ -102,8 +102,9 @@ function DepartmentLayout() {
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        bgcolor: '#0B3558',
-        color: '#FFFFFF',
+        bgcolor: '#FFFFFF',
+        color: '#0F172A',
+        borderRight: '1px solid #E2E8F0',
       }}
     >
       <Box
@@ -123,14 +124,14 @@ function DepartmentLayout() {
           <Avatar
             src="/logo.png"
             sx={{
-              width: 48,
-              height: 48,
+              width: 44,
+              height: 44,
               bgcolor: '#FFFFFF',
-              border: '2px solid rgba(255,255,255,0.75)',
+              border: '1px solid #E2E8F0',
               '& img': {
                 objectFit: 'contain',
                 bgcolor: '#fff',
-                p: 0.35,
+                p: 0.25,
               }
             }}
           />
@@ -139,8 +140,9 @@ function DepartmentLayout() {
             <Typography
               variant="subtitle2"
               sx={{
-                opacity: 0.82,
+                color: '#64748B',
                 lineHeight: 1.2,
+                fontSize: 12,
               }}
             >
               Government of Tripura
@@ -149,8 +151,8 @@ function DepartmentLayout() {
             <Typography
               variant="h6"
               sx={{
-                fontSize: '1rem',
-                fontWeight: 700,
+                fontSize: 14,
+                fontWeight: 800,
                 lineHeight: 1.3,
                 mt: 0.25,
               }}
@@ -165,16 +167,17 @@ function DepartmentLayout() {
           size="small"
           sx={{
             mt: 2,
-            bgcolor: 'rgba(255,255,255,0.12)',
-            color: '#FFFFFF',
-            fontWeight: 600,
+            bgcolor: '#F1F5F9',
+            color: '#334155',
+            fontWeight: 700,
+            fontSize: 11,
           }}
         />
       </Box>
 
       <Divider
         sx={{
-          borderColor: 'rgba(255,255,255,0.12)',
+          borderColor: '#E2E8F0',
         }}
       />
 
@@ -192,9 +195,10 @@ function DepartmentLayout() {
             px: 1.5,
             mb: 1,
             display: 'block',
-            color: 'rgba(255,255,255,0.55)',
-            fontWeight: 700,
+            color: '#94A3B8',
+            fontWeight: 800,
             letterSpacing: 0.8,
+            fontSize: 11,
           }}
         >
           ADMINISTRATION
@@ -215,38 +219,39 @@ function DepartmentLayout() {
                   mb: 0.75,
                   borderRadius: 2,
                   color: selected
-                    ? '#0B3558'
-                    : 'rgba(255,255,255,0.86)',
+                    ? '#0F172A'
+                    : '#64748B',
 
                   bgcolor: selected
-                    ? '#FFFFFF'
+                    ? '#F8FAFC'
                     : 'transparent',
 
                   '&.Mui-selected': {
-                    bgcolor: '#FFFFFF',
-                    color: '#0B3558',
+                    bgcolor: '#F8FAFC',
+                    color: '#0F172A',
+                    borderLeft: '3px solid #0EA5E9',
                   },
 
                   '&.Mui-selected:hover': {
-                    bgcolor: '#F4F8FB',
+                    bgcolor: '#F1F5F9',
                   },
 
                   transition: 'all 0.2s ease-in-out',
+                  borderLeft: '3px solid transparent',
 
                   '&:hover': {
                     bgcolor: selected
-                      ? '#F4F8FB'
-                      : 'rgba(255,255,255,0.08)',
-                    transform: 'translateX(4px)',
+                      ? '#F1F5F9'
+                      : '#F8FAFC',
                   },
 
-                  py: 1.25,
+                  py: 1,
                 }}
               >
                 <ListItemIcon
                   sx={{
                     minWidth: 42,
-                    color: 'inherit',
+                    color: selected ? '#0EA5E9' : 'inherit',
                   }}
                 >
                   {item.icon}
@@ -272,7 +277,7 @@ function DepartmentLayout() {
       <Box>
         <Divider
           sx={{
-            borderColor: 'rgba(255,255,255,0.12)',
+            borderColor: '#E2E8F0',
           }}
         />
 
@@ -283,7 +288,7 @@ function DepartmentLayout() {
         >
           <Button
             fullWidth
-            variant="outlined"
+            variant="text"
             startIcon={<LogoutRoundedIcon />}
             onClick={() => setLogoutDialogOpen(true)}
             disabled={loggingOut}
@@ -292,21 +297,18 @@ function DepartmentLayout() {
               justifyContent: 'flex-start',
               px: 2,
               borderRadius: 2,
-              borderColor: 'rgba(255,255,255,0.30)',
-              color: '#FFFFFF',
+              color: '#64748B',
               fontWeight: 700,
               textTransform: 'none',
               transition: 'all 0.2s ease-in-out',
 
               '&:hover': {
-                borderColor: '#FFFFFF',
-                bgcolor: 'rgba(255,255,255,0.08)',
-                transform: 'translateY(-1px)',
+                bgcolor: '#F1F5F9',
+                color: '#0F172A',
               },
 
               '&.Mui-disabled': {
-                color: 'rgba(255,255,255,0.55)',
-                borderColor: 'rgba(255,255,255,0.15)',
+                color: '#94A3B8',
               },
             }}
           >
@@ -321,7 +323,7 @@ function DepartmentLayout() {
     <Box
       sx={{
         minHeight: '100vh',
-        bgcolor: '#F4F7FA',
+        bgcolor: '#F8FAFC',
       }}
     >
       <AppBar
@@ -329,9 +331,9 @@ function DepartmentLayout() {
         position="fixed"
         sx={{
           bgcolor: '#FFFFFF',
-          color: '#102A43',
-          borderBottom: '1px solid #E7EDF3',
-          boxShadow: '0 4px 20px rgba(0,0,0,0.03)',
+          color: '#0F172A',
+          borderBottom: '1px solid #E2E8F0',
+          boxShadow: 'none',
 
           width: {
             xs: '100%',

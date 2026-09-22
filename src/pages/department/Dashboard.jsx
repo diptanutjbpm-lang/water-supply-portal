@@ -82,17 +82,17 @@ function MetricCard({
 }) {
   return (
     <Paper
-      variant="outlined"
+      elevation={0}
       sx={{
         p: 2.25,
         borderRadius: 2,
         minHeight: 130,
         bgcolor: '#FFFFFF',
-        borderColor: '#E2E8F0',
+        boxShadow: '0 2px 12px rgba(0,0,0,0.03)',
+        border: '1px solid #F1F5F9',
         transition: 'all 0.2s ease-in-out',
         '&:hover': {
-          boxShadow: '0 8px 24px rgba(16,42,67,0.06)',
-          borderColor: '#CBD5E1',
+          boxShadow: '0 10px 30px rgba(0,0,0,0.05)',
           transform: 'translateY(-2px)'
         }
       }}
@@ -148,8 +148,8 @@ function MetricCard({
             width: 44,
             height: 44,
             borderRadius: 1.5,
-            bgcolor: '#EEF5FB',
-            color: '#0B5FA5',
+            bgcolor: '#F8FAFC',
+            color: '#64748B',
             display: 'grid',
             placeItems: 'center',
             flexShrink: 0,
@@ -171,16 +171,16 @@ function SectionCard({
 }) {
   return (
     <Paper
-      variant="outlined"
+      elevation={0}
       sx={{
         borderRadius: 2,
-        borderColor: '#E2E8F0',
         overflow: 'hidden',
         bgcolor: '#FFFFFF',
+        boxShadow: '0 2px 12px rgba(0,0,0,0.03)',
+        border: '1px solid #F1F5F9',
         transition: 'all 0.2s ease-in-out',
         '&:hover': {
-          boxShadow: '0 8px 24px rgba(16,42,67,0.06)',
-          borderColor: '#CBD5E1'
+          boxShadow: '0 10px 30px rgba(0,0,0,0.05)'
         }
       }}
     >
@@ -188,7 +188,7 @@ function SectionCard({
         sx={{
           px: 2.25,
           py: 2,
-          borderBottom: '1px solid #EDF2F7',
+          borderBottom: '1px solid #F1F5F9',
         }}
       >
         <Stack

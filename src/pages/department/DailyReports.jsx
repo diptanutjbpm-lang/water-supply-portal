@@ -1194,16 +1194,17 @@ function DailyReports() {
       )}
 
       <Paper
-        variant="outlined"
+        elevation={0}
         sx={{
           mb: 2.5,
           borderRadius: 2,
-          borderColor: '#DCE6EF',
           bgcolor: '#FFFFFF',
+          border: '1px solid #F1F5F9',
+          boxShadow: '0 2px 12px rgba(0,0,0,0.03)',
           overflow: 'hidden',
-          transition: 'box-shadow 0.2s',
+          transition: 'all 0.2s',
           '&:hover': {
-            boxShadow: '0 8px 24px rgba(16,42,67,0.04)'
+            boxShadow: '0 10px 30px rgba(0,0,0,0.05)'
           }
         }}
       >
@@ -1321,15 +1322,16 @@ function DailyReports() {
       </Paper>
 
       <Paper
-        variant="outlined"
+        elevation={0}
         sx={{
           borderRadius: 2,
-          borderColor: '#DCE6EF',
           bgcolor: '#FFFFFF',
+          border: '1px solid #F1F5F9',
+          boxShadow: '0 2px 12px rgba(0,0,0,0.03)',
           overflow: 'hidden',
-          transition: 'box-shadow 0.2s',
+          transition: 'all 0.2s',
           '&:hover': {
-            boxShadow: '0 8px 24px rgba(16,42,67,0.04)'
+            boxShadow: '0 10px 30px rgba(0,0,0,0.05)'
           }
         }}
       >
@@ -1337,7 +1339,7 @@ function DailyReports() {
           sx={{
             px: { xs: 1.75, md: 2 },
             py: 1.75,
-            borderBottom: '1px solid #E9EFF5',
+            borderBottom: '1px solid #F1F5F9',
           }}
         >
           <Stack
@@ -1621,21 +1623,21 @@ function DailyReports() {
                 border: 0,
                 color: '#243B53',
                 '& .MuiDataGrid-columnHeaders': {
-                  bgcolor: '#F4F7FA',
-                  borderBottom: '1px solid #DCE6EF',
+                  bgcolor: '#F8FAFC',
+                  borderBottom: '1px solid #F1F5F9',
                 },
                 '& .MuiDataGrid-columnHeaderTitle': {
                   fontWeight: 850,
-                  color: '#102A43',
+                  color: '#0F172A',
                   fontSize: 12.5,
                 },
                 '& .MuiDataGrid-cell': {
                   alignItems: 'center',
-                  borderColor: '#EDF2F7',
+                  borderColor: '#F1F5F9',
                   py: 0,
                 },
                 '& .MuiDataGrid-row:hover': {
-                  bgcolor: '#F8FBFD',
+                  bgcolor: '#F8FAFC',
                 },
                 '& .row-non-functional': {
                   bgcolor: 'rgba(199, 54, 47, 0.035)',
@@ -1645,7 +1647,7 @@ function DailyReports() {
                 },
                 '& .MuiDataGrid-footerContainer': {
                   minHeight: 52,
-                  borderTop: '1px solid #E9EFF5',
+                  borderTop: '1px solid #F1F5F9',
                 },
                 '& .MuiDataGrid-virtualScroller': {
                   bgcolor: '#FFFFFF',
