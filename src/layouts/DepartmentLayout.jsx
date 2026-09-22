@@ -361,31 +361,54 @@ function DepartmentLayout() {
             </IconButton>
           )}
 
-          <WaterDropRoundedIcon
+          <Avatar
+            src="/logo.png"
+            alt="Tripura Jal Board"
             sx={{
-              color: '#1976D2',
-              mr: 1.25,
+              width: 44,
+              height: 44,
+              bgcolor: '#ffffff',
+              color: '#10345f',
+              border: '2px solid #E2E8F0',
+              mr: 1.5,
+              '& img': {
+                objectFit: 'contain',
+                p: 0.35,
+                bgcolor: '#fff',
+              },
             }}
-          />
+          >
+            TJB
+          </Avatar>
 
-          <Box sx={{ flex: 1 }}>
+          <Box sx={{ flex: 1, minWidth: 0 }}>
             <Typography
+              noWrap
               sx={{
                 fontSize: {
                   xs: 15,
                   sm: 17,
                 },
-                fontWeight: 700,
+                fontWeight: 850,
+                color: '#102A43',
+                letterSpacing: '-0.01em',
+                lineHeight: 1.2,
               }}
             >
-              Water Supply Monitoring Portal
+              Tripura Jal Board
             </Typography>
 
             <Typography
+              noWrap
               variant="caption"
               color="text.secondary"
+              sx={{
+                display: 'block',
+                mt: 0.25,
+                fontWeight: 600,
+              }}
             >
-              Drinking Water & Sanitation Department
+              Department Portal
             </Typography>
           </Box>
 
