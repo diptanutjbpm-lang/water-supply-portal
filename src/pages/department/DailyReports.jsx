@@ -1195,11 +1195,15 @@ function DailyReports() {
       <Paper
         variant="outlined"
         sx={{
-          mb: 2,
+          mb: 2.5,
           borderRadius: 2,
           borderColor: '#DCE6EF',
           bgcolor: '#FFFFFF',
           overflow: 'hidden',
+          transition: 'box-shadow 0.2s',
+          '&:hover': {
+            boxShadow: '0 8px 24px rgba(16,42,67,0.04)'
+          }
         }}
       >
         <Box
@@ -1322,6 +1326,10 @@ function DailyReports() {
           borderColor: '#DCE6EF',
           bgcolor: '#FFFFFF',
           overflow: 'hidden',
+          transition: 'box-shadow 0.2s',
+          '&:hover': {
+            boxShadow: '0 8px 24px rgba(16,42,67,0.04)'
+          }
         }}
       >
         <Box
@@ -1468,9 +1476,10 @@ function DailyReports() {
                 gridTemplateColumns: {
                   xs: '1fr',
                   sm: 'repeat(2, minmax(0, 1fr))',
+                  md: 'repeat(3, minmax(0, 1fr))',
                   lg: 'repeat(4, minmax(0, 1fr))',
                 },
-                gap: 1.1,
+                gap: 1.5,
               }}
             >
               <FilterSelect

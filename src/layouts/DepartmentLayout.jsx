@@ -34,6 +34,7 @@ import AssessmentRoundedIcon from '@mui/icons-material/AssessmentRounded'
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded'
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded'
 import WaterDropRoundedIcon from '@mui/icons-material/WaterDropRounded'
+import AdminPanelSettingsRoundedIcon from '@mui/icons-material/AdminPanelSettingsRounded'
 
 import { useAuth } from '../auth/AuthContext'
 
@@ -230,10 +231,13 @@ function DepartmentLayout() {
                     bgcolor: '#F4F8FB',
                   },
 
+                  transition: 'all 0.2s ease-in-out',
+
                   '&:hover': {
                     bgcolor: selected
                       ? '#F4F8FB'
                       : 'rgba(255,255,255,0.08)',
+                    transform: 'translateX(4px)',
                   },
 
                   py: 1.25,
@@ -292,10 +296,12 @@ function DepartmentLayout() {
               color: '#FFFFFF',
               fontWeight: 700,
               textTransform: 'none',
+              transition: 'all 0.2s ease-in-out',
 
               '&:hover': {
                 borderColor: '#FFFFFF',
                 bgcolor: 'rgba(255,255,255,0.08)',
+                transform: 'translateY(-1px)',
               },
 
               '&.Mui-disabled': {
@@ -325,6 +331,7 @@ function DepartmentLayout() {
           bgcolor: '#FFFFFF',
           color: '#102A43',
           borderBottom: '1px solid #E7EDF3',
+          boxShadow: '0 4px 20px rgba(0,0,0,0.03)',
 
           width: {
             xs: '100%',
@@ -383,6 +390,7 @@ function DepartmentLayout() {
           </Box>
 
           <Chip
+            icon={<AdminPanelSettingsRoundedIcon sx={{ color: '#0B3558 !important', fontSize: 16 }} />}
             label="ADMIN"
             size="small"
             sx={{
@@ -390,7 +398,11 @@ function DepartmentLayout() {
                 xs: 'none',
                 sm: 'inline-flex',
               },
-              fontWeight: 700,
+              fontWeight: 800,
+              bgcolor: '#EEF5FB',
+              color: '#0B3558',
+              px: 0.5,
+              border: '1px solid #D7E8F7'
             }}
           />
         </Toolbar>

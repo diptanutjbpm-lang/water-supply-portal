@@ -89,6 +89,12 @@ function MetricCard({
         minHeight: 130,
         bgcolor: '#FFFFFF',
         borderColor: '#E2E8F0',
+        transition: 'all 0.2s ease-in-out',
+        '&:hover': {
+          boxShadow: '0 8px 24px rgba(16,42,67,0.06)',
+          borderColor: '#CBD5E1',
+          transform: 'translateY(-2px)'
+        }
       }}
     >
       <Stack
@@ -171,6 +177,11 @@ function SectionCard({
         borderColor: '#E2E8F0',
         overflow: 'hidden',
         bgcolor: '#FFFFFF',
+        transition: 'all 0.2s ease-in-out',
+        '&:hover': {
+          boxShadow: '0 8px 24px rgba(16,42,67,0.06)',
+          borderColor: '#CBD5E1'
+        }
       }}
     >
       <Box
@@ -574,6 +585,7 @@ function Dashboard() {
             xs: 'stretch',
             sm: 'center',
           }}
+          sx={{ width: { xs: '100%', md: 'auto' } }}
         >
           <TextField
             type="date"
@@ -677,9 +689,10 @@ function Dashboard() {
           gridTemplateColumns: {
             xs: '1fr',
             sm: 'repeat(2, minmax(0, 1fr))',
+            md: 'repeat(3, minmax(0, 1fr))',
             lg: 'repeat(4, minmax(0, 1fr))',
           },
-          gap: 2,
+          gap: 2.5,
         }}
       >
         <MetricCard
@@ -785,13 +798,13 @@ function Dashboard() {
 
       <Box
         sx={{
-          mt: 2,
+          mt: 2.5,
           display: 'grid',
           gridTemplateColumns: {
             xs: '1fr',
             lg: 'repeat(2, minmax(0, 1fr))',
           },
-          gap: 2,
+          gap: 2.5,
         }}
       >
         <SectionCard
@@ -869,13 +882,13 @@ function Dashboard() {
 
       <Box
         sx={{
-          mt: 2,
+          mt: 2.5,
           display: 'grid',
           gridTemplateColumns: {
             xs: '1fr',
             xl: 'minmax(0, 1.35fr) minmax(0, 0.65fr)',
           },
-          gap: 2,
+          gap: 2.5,
         }}
       >
         <SectionCard
@@ -1138,13 +1151,13 @@ function Dashboard() {
 
       <Box
         sx={{
-          mt: 2,
+          mt: 2.5,
           display: 'grid',
           gridTemplateColumns: {
             xs: '1fr',
             lg: 'repeat(2, minmax(0, 1fr))',
           },
-          gap: 2,
+          gap: 2.5,
         }}
       >
         <SectionCard
