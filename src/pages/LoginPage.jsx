@@ -617,12 +617,13 @@ export default function LoginPage() {
                             aria-label={showPassword ? 'Hide password' : 'Show password'}
                             onClick={() => setShowPassword((prev) => !prev)}
                             onMouseDown={(e) => e.preventDefault()}
-                            sx={{ color: '#6B7C8F', mr: -0.5 }}
+                            sx={{ color: '#0B5FA5' }}
+                            edge="end"
                           >
                             {showPassword ? (
-                              <VisibilityOffRoundedIcon fontSize="small" />
+                              <VisibilityOffRoundedIcon />
                             ) : (
-                              <VisibilityRoundedIcon fontSize="small" />
+                              <VisibilityRoundedIcon />
                             )}
                           </IconButton>
                         </InputAdornment>
@@ -634,6 +635,7 @@ export default function LoginPage() {
                         minHeight: 48,
                         bgcolor: '#FBFCFE',
                         borderRadius: 1.5,
+                        pr: 1.5,
                       },
                     }}
                   />
