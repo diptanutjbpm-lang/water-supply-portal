@@ -5,6 +5,11 @@ import {
   Button,
   Chip,
   Container,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
   Paper,
   Stack,
   Toolbar,
@@ -29,8 +34,10 @@ function formatToday() {
 export default function SDOLayout() {
   const { user, logout } = useAuth()
   const navigate = useNavigate()
+  const [logoutDialogOpen, setLogoutDialogOpen] = useState(false)
 
   const handleLogout = async () => {
+    setLogoutDialogOpen(false)
     await logout()
     navigate('/login', { replace: true })
   }
@@ -113,7 +120,7 @@ export default function SDOLayout() {
             variant="text"
             size="small"
             startIcon={<LogoutRoundedIcon />}
-            onClick={handleLogout}
+            onClick={() => setLogoutDialogOpen(true)}
             sx={{
               ml: 'auto',
               px: { xs: 1, sm: 1.6 },
@@ -206,6 +213,30 @@ export default function SDOLayout() {
           </Typography>
         </Box>
       </Container>
+
+      {/* Logout Confirmation Dialog */}
+      <Dialog
+        open={logoutDialogOpen}
+        onClose={() => setLogoutDialogOpen(false)}
+        PaperProps={{
+          sx: { borderRadius: 2, minWidth: 320 }
+        }}
+      >
+        <DialogTitle sx={{ fontWeight: 800, color: '#12365e' }}>Confirm Logout</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Are you sure you want to log out of the portal?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions sx={{ p: 2, pt: 0 }}>
+          <Button onClick={() => setLogoutDialogOpen(false)} color="inherit" sx={{ fontWeight: 700, borderRadius: 1.5 }}>
+            Cancel
+          </Button>
+          <Button onClick={handleLogout} color="error" variant="contained" disableElevation sx={{ fontWeight: 700, borderRadius: 1.5 }}>
+            Logout
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   )
 }

@@ -453,6 +453,7 @@ export default function DailyReport() {
               label="Scheme / Location"
               IconComponent={KeyboardArrowDownRoundedIcon}
               onChange={(e) => { setSelectedId(e.target.value); resetForm() }}
+              disabled={submitting}
               sx={{
                 bgcolor: '#ffffff',
                 minHeight: 48,
@@ -585,6 +586,7 @@ export default function DailyReport() {
               color="success"
               startIcon={<CheckCircleRoundedIcon />}
               onClick={setNormal}
+              disabled={submitting}
               sx={{
                 minWidth: { sm: 220 },
                 width: { xs: '100%', sm: 'auto' },
@@ -616,6 +618,7 @@ export default function DailyReport() {
                   label="Functional / Non-Functional"
                   value={form.functionalStatus}
                   onChange={(e) => setField('functionalStatus', e.target.value)}
+                  disabled={submitting}
                 >
                   <MenuItem value="Functional">Functional</MenuItem>
                   <MenuItem value="Non-Functional">Non-Functional</MenuItem>
@@ -631,6 +634,7 @@ export default function DailyReport() {
                 value={form.plantEndTime}
                 onChange={(e) => setField('plantEndTime', e.target.value)}
                 inputRef={plantEndTimeInputRef}
+                disabled={submitting}
                 InputLabelProps={{ shrink: true }}
                 inputProps={{ step: 60 }}
                 onClick={() => {
@@ -678,6 +682,7 @@ export default function DailyReport() {
                 type="number"
                 value={form.waterProduction}
                 onChange={(e) => setField('waterProduction', e.target.value)}
+                disabled={submitting}
                 inputProps={{ min: 0, inputMode: 'decimal' }}
                 InputProps={{ endAdornment: <InputAdornment position="end">KL</InputAdornment> }}
               />
@@ -692,14 +697,14 @@ export default function DailyReport() {
             <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, minmax(0, 1fr))' }, gap: { xs: 1, sm: 1.25 }, minWidth: 0 }}>
               <FormControl fullWidth required>
                 <InputLabel>Pump Status</InputLabel>
-                <Select label="Pump Status" value={form.pumpStatus} onChange={(e) => setField('pumpStatus', e.target.value)}>
+                <Select label="Pump Status" value={form.pumpStatus} onChange={(e) => setField('pumpStatus', e.target.value)} disabled={submitting}>
                   {['Working', 'Not Working', 'Stopped', 'Under Maintenance', 'Pump Failure', 'Not Available'].map((item) => <MenuItem key={item} value={item}>{item}</MenuItem>)}
                 </Select>
               </FormControl>
 
               <FormControl fullWidth>
                 <InputLabel>Chlorination Status</InputLabel>
-                <Select label="Chlorination Status" value={form.chlorinationStatus} onChange={(e) => setField('chlorinationStatus', e.target.value)}>
+                <Select label="Chlorination Status" value={form.chlorinationStatus} onChange={(e) => setField('chlorinationStatus', e.target.value)} disabled={submitting}>
                   {['Done', 'In Progress', 'Pending', 'Not Done', 'Not Required'].map((item) => <MenuItem key={item} value={item}>{item}</MenuItem>)}
                 </Select>
               </FormControl>
@@ -708,14 +713,14 @@ export default function DailyReport() {
             <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, minmax(0, 1fr))' }, gap: { xs: 1, sm: 1.25 }, minWidth: 0 }}>
               <FormControl fullWidth required>
                 <InputLabel>Power Supply Status</InputLabel>
-                <Select label="Power Supply Status" value={form.powerStatus} onChange={(e) => setField('powerStatus', e.target.value)}>
+                <Select label="Power Supply Status" value={form.powerStatus} onChange={(e) => setField('powerStatus', e.target.value)} disabled={submitting}>
                   {['Available', 'Not Available', 'Power Failure', 'Low Voltage', 'Intermittent Supply', 'Generator Running'].map((item) => <MenuItem key={item} value={item}>{item}</MenuItem>)}
                 </Select>
               </FormControl>
 
               <FormControl fullWidth required>
                 <InputLabel>Water Supplied Today?</InputLabel>
-                <Select label="Water Supplied Today?" value={form.waterSupplyStatus} onChange={(e) => setField('waterSupplyStatus', e.target.value)}>
+                <Select label="Water Supplied Today?" value={form.waterSupplyStatus} onChange={(e) => setField('waterSupplyStatus', e.target.value)} disabled={submitting}>
                   <MenuItem value="Yes">Yes</MenuItem>
                   <MenuItem value="No">No</MenuItem>
                 </Select>
@@ -733,7 +738,7 @@ export default function DailyReport() {
 
             <FormControl fullWidth>
               <InputLabel>Issues / Remarks</InputLabel>
-              <Select label="Issues / Remarks" value={form.issues} onChange={(e) => setField('issues', e.target.value)}>
+              <Select label="Issues / Remarks" value={form.issues} onChange={(e) => setField('issues', e.target.value)} disabled={submitting}>
                 <MenuItem value="">No Issue</MenuItem>
                 {issueOptions.map((item) => <MenuItem key={item} value={item}>{item}</MenuItem>)}
               </Select>
@@ -748,12 +753,13 @@ export default function DailyReport() {
                 label="Other issue detail"
                 value={form.otherIssue}
                 onChange={(e) => setField('otherIssue', e.target.value)}
+                disabled={submitting}
               />
             )}
 
             <FormControl fullWidth>
               <InputLabel>Action Taken</InputLabel>
-              <Select label="Action Taken" value={form.actionTaken} onChange={(e) => setField('actionTaken', e.target.value)}>
+              <Select label="Action Taken" value={form.actionTaken} onChange={(e) => setField('actionTaken', e.target.value)} disabled={submitting}>
                 {actionOptions.map((item) => <MenuItem key={item} value={item}>{item}</MenuItem>)}
               </Select>
             </FormControl>

@@ -11,6 +11,11 @@ import {
   Box,
   Button,
   Chip,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
   Divider,
   Drawer,
   IconButton,
@@ -66,6 +71,7 @@ function DepartmentLayout() {
 
   const [mobileOpen, setMobileOpen] = useState(false)
   const [loggingOut, setLoggingOut] = useState(false)
+  const [logoutDialogOpen, setLogoutDialogOpen] = useState(false)
 
   const handleNavigate = (path) => {
     navigate(path)
@@ -79,6 +85,7 @@ function DepartmentLayout() {
     if (loggingOut) return
 
     try {
+      setLogoutDialogOpen(false)
       setLoggingOut(true)
       await logout()
     } finally {
@@ -274,7 +281,7 @@ function DepartmentLayout() {
             fullWidth
             variant="outlined"
             startIcon={<LogoutRoundedIcon />}
-            onClick={handleLogout}
+            onClick={() => setLogoutDialogOpen(true)}
             disabled={loggingOut}
             sx={{
               minHeight: 48,
@@ -454,6 +461,30 @@ function DepartmentLayout() {
           </Box>
         </Box>
       </Box>
+
+      {/* Logout Confirmation Dialog */}
+      <Dialog
+        open={logoutDialogOpen}
+        onClose={() => setLogoutDialogOpen(false)}
+        PaperProps={{
+          sx: { borderRadius: 2, minWidth: 320 }
+        }}
+      >
+        <DialogTitle sx={{ fontWeight: 800, color: '#12365e' }}>Confirm Logout</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Are you sure you want to log out of the portal?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions sx={{ p: 2, pt: 0 }}>
+          <Button onClick={() => setLogoutDialogOpen(false)} color="inherit" sx={{ fontWeight: 700, borderRadius: 1.5 }}>
+            Cancel
+          </Button>
+          <Button onClick={handleLogout} color="error" variant="contained" disableElevation sx={{ fontWeight: 700, borderRadius: 1.5 }}>
+            Logout
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   )
 }
