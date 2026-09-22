@@ -626,15 +626,10 @@ export default function LoginPage() {
                       endAdornment: (
                         <InputAdornment position="end">
                           <IconButton
-                            edge="end"
-                            size="small"
-                            aria-label={
-                              showPassword
-                                ? 'Hide password'
-                                : 'Show password'
-                            }
-                            onClick={() => setShowPassword((value) => !value)}
+                            aria-label={showPassword ? 'Hide password' : 'Show password'}
+                            onClick={() => setShowPassword((prev) => !prev)}
                             onMouseDown={(e) => e.preventDefault()}
+                            sx={{ color: '#6B7C8F', mr: -0.5 }}
                           >
                             {showPassword ? (
                               <VisibilityOffRoundedIcon fontSize="small" />
