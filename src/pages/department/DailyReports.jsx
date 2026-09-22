@@ -1126,6 +1126,7 @@ function DailyReports() {
 
           <Button
             variant="contained"
+            color="error"
             startIcon={<DownloadRoundedIcon />}
             onClick={exportCurrent}
             disabled={!filteredRows.length}
