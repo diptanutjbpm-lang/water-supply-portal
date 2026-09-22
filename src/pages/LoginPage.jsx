@@ -201,7 +201,7 @@ export default function LoginPage() {
                   lineHeight: 1.2,
                 }}
               >
-                Government of Tripura
+                Tripura Jal Board
               </Typography>
 
               <Typography
@@ -399,7 +399,7 @@ export default function LoginPage() {
 
             <Box minWidth={0}>
               <Typography fontSize={11.5} color="text.secondary">
-                Government of Tripura
+                Tripura Jal Board
               </Typography>
               <Typography
                 fontWeight={850}
