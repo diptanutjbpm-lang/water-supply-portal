@@ -5,7 +5,6 @@ import {
   Button,
   Card,
   CardContent,
-  Chip,
   CircularProgress,
   Divider,
   FormControl,
@@ -31,7 +30,6 @@ import FactoryRoundedIcon from '@mui/icons-material/FactoryRounded'
 import SpeedRoundedIcon from '@mui/icons-material/SpeedRounded'
 import WaterDropRoundedIcon from '@mui/icons-material/WaterDropRounded'
 import BuildRoundedIcon from '@mui/icons-material/BuildRounded'
-import InfoRoundedIcon from '@mui/icons-material/InfoRounded'
 import AccessTimeRoundedIcon from '@mui/icons-material/AccessTimeRounded'
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded'
 import { apiRequest } from '../../api/api'
@@ -73,9 +71,24 @@ const cardSx = {
 
 function SummaryCard({ value, label, caption, icon, tone = 'blue' }) {
   const tones = {
-    blue: { bg: '#edf5fc', fg: '#1768ac' },
-    green: { bg: '#ecf8f1', fg: '#17844d' },
-    amber: { bg: '#fff7e8', fg: '#b86b00' },
+    blue: {
+      bg: 'linear-gradient(145deg, #ffffff 0%, #f4f9fe 100%)',
+      iconBg: '#e9f4fd',
+      iconFg: '#1768ac',
+      accent: '#4aa3df',
+    },
+    green: {
+      bg: 'linear-gradient(145deg, #ffffff 0%, #f3fbf6 100%)',
+      iconBg: '#e8f7ef',
+      iconFg: '#17844d',
+      accent: '#45b57a',
+    },
+    amber: {
+      bg: 'linear-gradient(145deg, #ffffff 0%, #fff9ef 100%)',
+      iconBg: '#fff3df',
+      iconFg: '#b86b00',
+      accent: '#e2a23e',
+    },
   }
   const palette = tones[tone] || tones.blue
 
@@ -83,48 +96,81 @@ function SummaryCard({ value, label, caption, icon, tone = 'blue' }) {
     <Paper
       elevation={0}
       sx={{
-        p: { xs: 1.35, sm: 1.55 },
+        position: 'relative',
+        overflow: 'hidden',
+        p: { xs: 1.05, sm: 1.55 },
+        minWidth: 0,
+        minHeight: { xs: 96, sm: 108 },
         border: '1px solid #dce6ef',
-        borderRadius: 2.5,
-        minHeight: 92,
-        bgcolor: '#ffffff',
+        borderRadius: { xs: 2.2, sm: 2.8 },
+        background: palette.bg,
+        boxShadow: '0 10px 28px rgba(16,52,95,0.055)',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          inset: '0 auto 0 0',
+          width: 3,
+          bgcolor: palette.accent,
+          opacity: 0.9,
+        },
       }}
     >
-      <Stack direction="row" justifyContent="space-between" spacing={1} alignItems="flex-start">
-        <Box minWidth={0}>
-          <Typography
-            sx={{
-              fontSize: { xs: 20, sm: 23 },
-              lineHeight: 1,
-              fontWeight: 900,
-              color: '#12365e',
-            }}
-          >
-            {value}
-          </Typography>
-          <Typography sx={{ mt: 0.55, fontSize: 11.5, fontWeight: 800, color: '#263b50' }}>
-            {label}
-          </Typography>
-          <Typography sx={{ mt: 0.2, fontSize: 9.5, color: 'text.secondary', lineHeight: 1.3 }}>
-            {caption}
-          </Typography>
-        </Box>
-        <Box
+      <Box
+        sx={{
+          position: 'absolute',
+          top: { xs: 8, sm: 12 },
+          right: { xs: 8, sm: 12 },
+          width: { xs: 28, sm: 36 },
+          height: { xs: 28, sm: 36 },
+          borderRadius: { xs: 1.8, sm: 2.2 },
+          display: 'grid',
+          placeItems: 'center',
+          bgcolor: palette.iconBg,
+          color: palette.iconFg,
+          '& svg': { fontSize: { xs: 16, sm: 20 } },
+        }}
+      >
+        {icon}
+      </Box>
+
+      <Box sx={{ pr: { xs: 3.5, sm: 4.6 }, minWidth: 0 }}>
+        <Typography
           sx={{
-            width: 34,
-            height: 34,
-            borderRadius: 2,
-            display: 'grid',
-            placeItems: 'center',
-            bgcolor: palette.bg,
-            color: palette.fg,
-            flexShrink: 0,
-            '& svg': { fontSize: 19 },
+            fontSize: { xs: 18, sm: 24 },
+            lineHeight: 1,
+            fontWeight: 900,
+            color: '#12365e',
+            letterSpacing: '-0.025em',
           }}
         >
-          {icon}
-        </Box>
-      </Stack>
+          {value}
+        </Typography>
+
+        <Typography
+          sx={{
+            mt: { xs: 0.65, sm: 0.8 },
+            fontSize: { xs: 9.6, sm: 11.5 },
+            fontWeight: 900,
+            color: '#263b50',
+            lineHeight: 1.2,
+            minHeight: { xs: 24, sm: 'auto' },
+          }}
+        >
+          {label}
+        </Typography>
+
+        <Typography
+          sx={{
+            display: { xs: 'none', sm: 'block' },
+            mt: 0.35,
+            fontSize: { xs: 8.7, sm: 9.5 },
+            color: 'text.secondary',
+            lineHeight: 1.35,
+          }}
+        >
+          {caption}
+        </Typography>
+      </Box>
     </Paper>
   )
 }
@@ -189,12 +235,13 @@ function ReadOnlyItem({ label, value, icon }) {
     <Paper
       elevation={0}
       sx={{
-        p: { xs: 1.05, sm: 1.25 },
-        bgcolor: '#f7fafc',
-        border: '1px solid #e0e8ef',
-        borderRadius: 2,
-        minHeight: { xs: 66, sm: 72 },
+        p: { xs: 1, sm: 1.3 },
+        bgcolor: '#f8fbfd',
+        border: '1px solid #dde7ef',
+        borderRadius: 2.2,
+        minHeight: { xs: 74, sm: 78 },
         height: '100%',
+        boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.85)',
       }}
     >
       <Stack direction="row" spacing={0.8} alignItems="center">
@@ -215,7 +262,7 @@ function ReadOnlyItem({ label, value, icon }) {
       </Stack>
       <Typography
         sx={{
-          fontSize: 12.5,
+          fontSize: { xs: 11.5, sm: 12.5 },
           fontWeight: 800,
           color: '#263b50',
           mt: 0.65,
@@ -346,8 +393,8 @@ export default function DailyReport() {
       <Box
         sx={{
           display: 'grid',
-          gridTemplateColumns: { xs: '1fr', sm: 'repeat(3, minmax(0, 1fr))' },
-          gap: { xs: 1, sm: 1.25 },
+          gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+          gap: { xs: 0.7, sm: 1.25 },
           width: '100%',
           minWidth: 0,
         }}
@@ -444,8 +491,8 @@ export default function DailyReport() {
             <Box
               sx={{
                 display: 'grid',
-                gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, minmax(0, 1fr))', md: 'repeat(3, minmax(0, 1fr))' },
-                gap: 1,
+                gridTemplateColumns: { xs: 'repeat(2, minmax(0, 1fr))', sm: 'repeat(3, minmax(0, 1fr))' },
+                gap: { xs: 0.8, sm: 1 },
               }}
             >
               <ReadOnlyItem
@@ -480,63 +527,6 @@ export default function DailyReport() {
               />
             </Box>
 
-            {(selectedScheme.ward || selectedScheme.division || selectedScheme.zone) && (
-              <Stack
-                direction="row"
-                spacing={1}
-                flexWrap="wrap"
-                useFlexGap
-                mt={1.6}
-                justifyContent="flex-end"
-                sx={{ rowGap: 0.75 }}
-              >
-                {selectedScheme.ward && (
-                  <Chip
-                    label={`Ward ${selectedScheme.ward}`}
-                    variant="outlined"
-                    sx={{
-                      height: 31,
-                      borderRadius: 1.7,
-                      bgcolor: '#ffffff',
-                      borderColor: '#d5e0e9',
-                      color: '#465d72',
-                      fontWeight: 700,
-                      '& .MuiChip-label': { px: 1.35, fontSize: 11 },
-                    }}
-                  />
-                )}
-                {selectedScheme.division && (
-                  <Chip
-                    label={selectedScheme.division}
-                    variant="outlined"
-                    sx={{
-                      height: 31,
-                      borderRadius: 1.7,
-                      bgcolor: '#f7fbff',
-                      borderColor: '#c9dceb',
-                      color: '#244c70',
-                      fontWeight: 700,
-                      '& .MuiChip-label': { px: 1.45, fontSize: 11 },
-                    }}
-                  />
-                )}
-                {selectedScheme.zone && (
-                  <Chip
-                    label={selectedScheme.zone}
-                    variant="outlined"
-                    sx={{
-                      height: 31,
-                      borderRadius: 1.7,
-                      bgcolor: '#f7fbff',
-                      borderColor: '#c9dceb',
-                      color: '#244c70',
-                      fontWeight: 700,
-                      '& .MuiChip-label': { px: 1.45, fontSize: 11 },
-                    }}
-                  />
-                )}
-              </Stack>
-            )}
           </CardContent>
         </Card>
       )}
@@ -627,54 +617,54 @@ export default function DailyReport() {
             </Box>
 
             <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, minmax(0, 1fr))' }, gap: { xs: 1, sm: 1.25 }, minWidth: 0 }}>
-              <Box sx={{ position: 'relative' }}>
-                <Box
-                  component="input"
-                  ref={plantEndTimeInputRef}
-                  type="time"
-                  value={form.plantEndTime}
-                  onChange={(e) => setField('plantEndTime', e.target.value)}
-                  sx={{
-                    position: 'absolute',
-                    width: 1,
-                    height: 1,
+              <TextField
+                fullWidth
+                type="time"
+                label="Plant End Time (Optional)"
+                value={form.plantEndTime}
+                onChange={(e) => setField('plantEndTime', e.target.value)}
+                inputRef={plantEndTimeInputRef}
+                InputLabelProps={{ shrink: true }}
+                inputProps={{ step: 60 }}
+                onClick={() => {
+                  const input = plantEndTimeInputRef.current
+                  if (input?.showPicker) {
+                    try { input.showPicker() } catch { input.focus() }
+                  }
+                }}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        edge="end"
+                        size="small"
+                        aria-label="Select plant end time"
+                        onClick={(event) => {
+                          event.preventDefault()
+                          event.stopPropagation()
+                          const input = plantEndTimeInputRef.current
+                          if (!input) return
+                          input.focus()
+                          if (input.showPicker) {
+                            try { input.showPicker() } catch { /* native picker fallback */ }
+                          }
+                        }}
+                        sx={{ color: '#315b80' }}
+                      >
+                        <AccessTimeRoundedIcon fontSize="small" />
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
+                sx={{
+                  '& input[type="time"]::-webkit-calendar-picker-indicator': {
                     opacity: 0,
-                    pointerEvents: 'none',
-                    left: 0,
-                    bottom: 0,
-                  }}
-                />
-                <TextField
-                  fullWidth
-                  label="Plant End Time (Optional)"
-                  value={form.plantEndTime}
-                  placeholder="Select time"
-                  InputLabelProps={{ shrink: true }}
-                  InputProps={{
-                    readOnly: true,
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <IconButton
-                          edge="end"
-                          size="small"
-                          aria-label="Select plant end time"
-                          onClick={() => {
-                            const input = plantEndTimeInputRef.current
-                            if (input?.showPicker) input.showPicker()
-                            else input?.click()
-                          }}
-                          sx={{ color: '#315b80' }}
-                        >
-                          <AccessTimeRoundedIcon fontSize="small" />
-                        </IconButton>
-                      </InputAdornment>
-                    ),
-                  }}
-                  sx={{
-                    '& .MuiInputBase-input': { cursor: 'default' },
-                  }}
-                />
-              </Box>
+                    width: 0,
+                    margin: 0,
+                    padding: 0,
+                  },
+                }}
+              />
               <TextField
                 fullWidth
                 label="Water Production"
@@ -761,22 +751,6 @@ export default function DailyReport() {
               </Select>
             </FormControl>
 
-            <Paper
-              elevation={0}
-              sx={{
-                p: 1.1,
-                borderRadius: 2,
-                bgcolor: '#f8fafc',
-                border: '1px dashed #d7e1ea',
-              }}
-            >
-              <Stack direction="row" spacing={0.8} alignItems="center">
-                <InfoRoundedIcon sx={{ color: '#1768ac', fontSize: 17 }} />
-                <Typography sx={{ fontSize: 10.5, color: '#5b6f83' }}>
-                  Review the selected scheme and daily values before submitting. Submitted data will be saved to the departmental report.
-                </Typography>
-              </Stack>
-            </Paper>
 
             <Divider sx={{ borderColor: '#edf0f3' }} />
 
