@@ -709,27 +709,16 @@ export default function LoginPage() {
               </CardContent>
             </Card>
 
-            <Stack
-              direction={{ xs: 'column', sm: 'row' }}
-              justifyContent="space-between"
-              spacing={1}
-              sx={{ mt: 2 }}
-            >
-              <Typography variant="caption" color="text.secondary">
-                Internal departmental portal
+            {/* Combined Footer & Meta Information */}
+            <Box sx={{ textAlign: 'center', mt: 4, pb: 2 }}>
+              <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block', mb: 1.5, letterSpacing: 0.3 }}>
+                Internal departmental portal &bull; Water Supply Monitoring System
               </Typography>
 
-              <Typography variant="caption" color="text.secondary">
-                Water Supply Monitoring System
-              </Typography>
-            </Stack>
-
-            {/* Footer */}
-            <Box sx={{ textAlign: 'center', mt: 4 }}>
-              <Typography variant="body2" sx={{ fontWeight: 600, color: 'text.secondary' }}>
+              <Typography variant="body2" sx={{ fontWeight: 700, color: '#6B7C8F' }}>
                 Tripura Jal Board
               </Typography>
-              <Typography variant="caption" sx={{ color: 'text.secondary' }}>
+              <Typography variant="caption" sx={{ color: '#8898AA' }}>
                 Government of Tripura
               </Typography>
             </Box>
