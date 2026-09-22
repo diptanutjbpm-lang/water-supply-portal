@@ -289,7 +289,7 @@ export default function LoginPage() {
                   color: '#FFFFFF',
                   bgcolor: 'rgba(255,255,255,0.08)',
                   border: '1px solid rgba(255,255,255,0.12)',
-                  borderRadius: 2.5,
+                  borderRadius: 2,
                   backdropFilter: 'blur(6px)',
                 }}
               >
@@ -298,7 +298,7 @@ export default function LoginPage() {
                     sx={{
                       width: 40,
                       height: 40,
-                      borderRadius: 2,
+                      borderRadius: 1.5,
                       display: 'grid',
                       placeItems: 'center',
                       bgcolor: 'rgba(255,255,255,0.12)',
@@ -472,9 +472,9 @@ export default function LoginPage() {
             <Card
               elevation={0}
               sx={{
-                borderRadius: 3,
+                borderRadius: 2,
                 border: '1px solid #E0E8F0',
-                boxShadow: '0 18px 50px rgba(16,52,95,0.10)',
+                boxShadow: '0 10px 32px rgba(16,52,95,0.08)',
                 overflow: 'hidden',
               }}
             >
@@ -492,7 +492,7 @@ export default function LoginPage() {
                     sx={{
                       width: 42,
                       height: 42,
-                      borderRadius: 2.25,
+                      borderRadius: 1.5,
                       bgcolor: '#EEF5FB',
                       color: '#0B5FA5',
                       display: 'grid',
@@ -589,9 +589,9 @@ export default function LoginPage() {
                     sx={{
                       mb: 2,
                       '& .MuiOutlinedInput-root': {
-                        minHeight: 50,
+                        minHeight: 48,
                         bgcolor: '#FBFCFE',
-                        borderRadius: 2,
+                        borderRadius: 1.5,
                       },
                     }}
                   />
@@ -649,9 +649,9 @@ export default function LoginPage() {
                     sx={{
                       mb: 2.5,
                       '& .MuiOutlinedInput-root': {
-                        minHeight: 50,
+                        minHeight: 48,
                         bgcolor: '#FBFCFE',
-                        borderRadius: 2,
+                        borderRadius: 1.5,
                       },
                     }}
                   />
@@ -670,8 +670,8 @@ export default function LoginPage() {
                       )
                     }
                     sx={{
-                      minHeight: 52,
-                      borderRadius: 2,
+                      minHeight: 48,
+                      borderRadius: 1.5,
                       bgcolor: '#103F70',
                       boxShadow: '0 8px 20px rgba(16,63,112,0.22)',
                       '&:hover': {

@@ -10,7 +10,7 @@ const theme = createTheme({
     background: { default: '#eef3f7', paper: '#ffffff' },
     text: { primary: '#1f2d3d', secondary: '#687789' },
   },
-  shape: { borderRadius: 12 },
+  shape: { borderRadius: 8 },
   typography: {
     fontFamily: 'Inter, "Noto Sans", Roboto, Arial, sans-serif',
     button: { textTransform: 'none', fontWeight: 700 },

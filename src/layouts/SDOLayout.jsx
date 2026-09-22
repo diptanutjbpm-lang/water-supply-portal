@@ -11,7 +11,6 @@ import {
   Typography,
 } from '@mui/material'
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded'
-import BadgeRoundedIcon from '@mui/icons-material/BadgeRounded'
 import PlaceRoundedIcon from '@mui/icons-material/PlaceRounded'
 import CalendarMonthRoundedIcon from '@mui/icons-material/CalendarMonthRounded'
 import { Outlet, useNavigate } from 'react-router-dom'
@@ -57,7 +56,7 @@ export default function SDOLayout() {
       >
         <Toolbar
           sx={{
-            minHeight: { xs: 64, sm: 72, md: 76 },
+            minHeight: { xs: 58, sm: 68, md: 72 },
             px: { xs: 1.25, sm: 2.5, md: 3 },
             gap: 1.5,
             width: '100%',
@@ -147,14 +146,14 @@ export default function SDOLayout() {
             mb: { xs: 1.5, sm: 2.25 },
             p: { xs: 1.5, sm: 2, md: 2.25 },
             border: '1px solid #dce6ef',
-            borderRadius: 3,
+            borderRadius: 2,
             background: 'linear-gradient(135deg, #ffffff 0%, #f7fbff 100%)',
-            boxShadow: '0 10px 28px rgba(16,52,95,0.06)',
+            boxShadow: '0 4px 18px rgba(16,52,95,0.05)',
           }}
         >
           <Stack
             direction={{ xs: 'column', sm: 'row' }}
-            spacing={1.5}
+            spacing={{ xs: 1.25, sm: 1.5 }}
             justifyContent="space-between"
             alignItems={{ xs: 'flex-start', sm: 'center' }}
           >
@@ -162,19 +161,13 @@ export default function SDOLayout() {
               <Typography
                 sx={{
                   color: '#12365e',
-                  fontSize: { xs: 18, sm: 21, md: 24 },
+                  fontSize: { xs: 18, sm: 20, md: 22 },
                   fontWeight: 900,
                   letterSpacing: '-0.02em',
                   lineHeight: 1.2,
                 }}
               >
                 Good day, {user?.name || 'SDO'}
-              </Typography>
-              <Typography
-                color="text.secondary"
-                sx={{ mt: 0.55, fontSize: { xs: 12, sm: 13 } }}
-              >
-                Update today&apos;s operational status for your assigned water supply schemes.
               </Typography>
             </Box>
 
@@ -185,12 +178,6 @@ export default function SDOLayout() {
               useFlexGap
               sx={{ flexShrink: 0, justifyContent: { xs: 'flex-start', sm: 'flex-end' }, width: { xs: '100%', sm: 'auto' } }}
             >
-              <Chip
-                size="small"
-                icon={<BadgeRoundedIcon />}
-                label={user?.designation || 'SDO'}
-                sx={{ bgcolor: '#eef5fb', color: '#174f82', fontWeight: 800 }}
-              />
               <Chip
                 size="small"
                 icon={<PlaceRoundedIcon />}

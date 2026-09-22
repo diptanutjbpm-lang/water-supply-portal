@@ -64,9 +64,9 @@ const actionOptions = [
 
 const cardSx = {
   border: '1px solid #dce6ef',
-  borderRadius: 3,
-  boxShadow: '0 10px 28px rgba(16,52,95,0.055)',
-  overflow: 'visible',
+  borderRadius: 2,
+  boxShadow: '0 3px 12px rgba(16,52,95,0.045)',
+  overflow: 'hidden',
 }
 
 function SummaryCard({ value, label, caption, icon, tone = 'blue' }) {
@@ -98,13 +98,16 @@ function SummaryCard({ value, label, caption, icon, tone = 'blue' }) {
       sx={{
         position: 'relative',
         overflow: 'hidden',
-        p: { xs: 1.05, sm: 1.55 },
+        p: { xs: 1.15, sm: 1.6 },
         minWidth: 0,
-        minHeight: { xs: 96, sm: 108 },
+        minHeight: { xs: 82, sm: 96 },
         border: '1px solid #dce6ef',
-        borderRadius: { xs: 2.2, sm: 2.8 },
+        borderRadius: 2,
         background: palette.bg,
-        boxShadow: '0 10px 28px rgba(16,52,95,0.055)',
+        boxShadow: '0 2px 10px rgba(16,52,95,0.04)',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
         '&::before': {
           content: '""',
           position: 'absolute',
@@ -115,28 +118,10 @@ function SummaryCard({ value, label, caption, icon, tone = 'blue' }) {
         },
       }}
     >
-      <Box
-        sx={{
-          position: 'absolute',
-          top: { xs: 8, sm: 12 },
-          right: { xs: 8, sm: 12 },
-          width: { xs: 28, sm: 36 },
-          height: { xs: 28, sm: 36 },
-          borderRadius: { xs: 1.8, sm: 2.2 },
-          display: 'grid',
-          placeItems: 'center',
-          bgcolor: palette.iconBg,
-          color: palette.iconFg,
-          '& svg': { fontSize: { xs: 16, sm: 20 } },
-        }}
-      >
-        {icon}
-      </Box>
-
-      <Box sx={{ pr: { xs: 3.5, sm: 4.6 }, minWidth: 0 }}>
+      <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 0.5 }}>
         <Typography
           sx={{
-            fontSize: { xs: 18, sm: 24 },
+            fontSize: { xs: 18, sm: 22, md: 24 },
             lineHeight: 1,
             fontWeight: 900,
             color: '#12365e',
@@ -146,14 +131,31 @@ function SummaryCard({ value, label, caption, icon, tone = 'blue' }) {
           {value}
         </Typography>
 
+        <Box
+          sx={{
+            width: { xs: 26, sm: 32 },
+            height: { xs: 26, sm: 32 },
+            borderRadius: 1.5,
+            display: 'grid',
+            placeItems: 'center',
+            bgcolor: palette.iconBg,
+            color: palette.iconFg,
+            flexShrink: 0,
+            '& svg': { fontSize: { xs: 15, sm: 18 } },
+          }}
+        >
+          {icon}
+        </Box>
+      </Box>
+
+      <Box sx={{ mt: { xs: 0.6, sm: 0.8 }, minWidth: 0 }}>
         <Typography
           sx={{
-            mt: { xs: 0.65, sm: 0.8 },
-            fontSize: { xs: 9.6, sm: 11.5 },
-            fontWeight: 900,
+            fontSize: { xs: 10, sm: 11.5 },
+            fontWeight: 800,
             color: '#263b50',
-            lineHeight: 1.2,
-            minHeight: { xs: 24, sm: 'auto' },
+            lineHeight: 1.25,
+            wordBreak: 'break-word',
           }}
         >
           {label}
@@ -163,9 +165,12 @@ function SummaryCard({ value, label, caption, icon, tone = 'blue' }) {
           sx={{
             display: { xs: 'none', sm: 'block' },
             mt: 0.35,
-            fontSize: { xs: 8.7, sm: 9.5 },
+            fontSize: 9.5,
             color: 'text.secondary',
-            lineHeight: 1.35,
+            lineHeight: 1.3,
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
           }}
         >
           {caption}
@@ -180,47 +185,48 @@ function SectionHeading({ step, title }) {
     <Box
       sx={{
         width: '100%',
-        mb: { xs: 1.6, sm: 2 },
+        mb: { xs: 1.4, sm: 1.8 },
         display: 'flex',
-        justifyContent: 'flex-end',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
       }}
     >
       <Stack
         direction="row"
-        spacing={0.75}
-        alignItems="baseline"
-        justifyContent="flex-end"
-        flexWrap="wrap"
-        useFlexGap
+        spacing={1}
+        alignItems="center"
         sx={{
           width: '100%',
           minWidth: 0,
-          textAlign: 'right',
         }}
       >
         {step && (
-          <Typography
+          <Box
             component="span"
             sx={{
-              fontSize: { xs: 9, sm: 9.5 },
+              px: 1,
+              py: 0.3,
+              borderRadius: 1,
+              fontSize: { xs: 10, sm: 11 },
               fontWeight: 900,
-              color: '#1768ac',
-              letterSpacing: 0.65,
+              color: '#10345f',
+              bgcolor: '#e9f2fb',
+              letterSpacing: 0.5,
               textTransform: 'uppercase',
               whiteSpace: 'nowrap',
             }}
           >
             Step {step}
-          </Typography>
+          </Box>
         )}
 
         <Typography
           sx={{
-            fontSize: { xs: 14.5, sm: 15.5 },
-            fontWeight: 900,
+            fontSize: { xs: 14, sm: 15.5 },
+            fontWeight: 800,
             color: '#12365e',
             lineHeight: 1.25,
-            textAlign: 'right',
+            textAlign: 'left',
           }}
         >
           {title}
@@ -238,23 +244,24 @@ function ReadOnlyItem({ label, value, icon }) {
         p: { xs: 1, sm: 1.3 },
         bgcolor: '#f8fbfd',
         border: '1px solid #dde7ef',
-        borderRadius: 2.2,
-        minHeight: { xs: 74, sm: 78 },
+        borderRadius: 1.5,
+        minHeight: { xs: 66, sm: 74 },
         height: '100%',
         boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.85)',
       }}
     >
-      <Stack direction="row" spacing={0.8} alignItems="center">
-        <Box sx={{ color: '#6e8296', display: 'grid', placeItems: 'center', '& svg': { fontSize: 15 } }}>
+      <Stack direction="row" spacing={0.75} alignItems="center">
+        <Box sx={{ color: '#6e8296', display: 'grid', placeItems: 'center', '& svg': { fontSize: 14 } }}>
           {icon}
         </Box>
         <Typography
           sx={{
-            fontSize: 9.5,
+            fontSize: { xs: 9, sm: 9.5 },
             color: 'text.secondary',
             textTransform: 'uppercase',
-            letterSpacing: 0.55,
+            letterSpacing: 0.5,
             fontWeight: 800,
+            lineHeight: 1.2,
           }}
         >
           {label}
@@ -265,9 +272,9 @@ function ReadOnlyItem({ label, value, icon }) {
           fontSize: { xs: 11.5, sm: 12.5 },
           fontWeight: 800,
           color: '#263b50',
-          mt: 0.65,
+          mt: 0.5,
           wordBreak: 'break-word',
-          lineHeight: 1.35,
+          lineHeight: 1.3,
         }}
       >
         {value || '—'}
@@ -426,14 +433,14 @@ export default function DailyReport() {
         <Alert
           severity="error"
           onClose={() => setError('')}
-          sx={{ borderRadius: 2.5, border: '1px solid #f1d0ce' }}
+          sx={{ borderRadius: 1.5, border: '1px solid #f1d0ce' }}
         >
           {error}
         </Alert>
       )}
 
       <Card elevation={0} sx={cardSx}>
-        <CardContent sx={{ p: { xs: 1.6, sm: 2.25, md: 2.75 }, '&:last-child': { pb: { xs: 1.6, sm: 2.25, md: 2.75 } } }}>
+        <CardContent sx={{ p: { xs: 1.5, sm: 2, md: 2.5 }, '&:last-child': { pb: { xs: 1.5, sm: 2, md: 2.5 } } }}>
           <SectionHeading
             step="1"
             title="Select Scheme / Location"
@@ -448,11 +455,11 @@ export default function DailyReport() {
               onChange={(e) => { setSelectedId(e.target.value); resetForm() }}
               sx={{
                 bgcolor: '#ffffff',
-                minHeight: 62,
-                borderRadius: 2.25,
+                minHeight: 48,
+                borderRadius: 1.5,
                 '& .MuiSelect-select': {
-                  py: { xs: 1.25, sm: 1.45 },
-                  px: { xs: 1.4, sm: 1.75 },
+                  py: { xs: 1.2, sm: 1.35 },
+                  px: { xs: 1.4, sm: 1.6 },
                   display: 'flex',
                   alignItems: 'center',
                   minWidth: 0,
@@ -553,7 +560,7 @@ export default function DailyReport() {
                 sx={{
                   width: 34,
                   height: 34,
-                  borderRadius: 2,
+                  borderRadius: 1.5,
                   bgcolor: '#e6f6ed',
                   color: '#17844d',
                   display: 'grid',
@@ -581,8 +588,8 @@ export default function DailyReport() {
               sx={{
                 minWidth: { sm: 220 },
                 width: { xs: '100%', sm: 'auto' },
-                borderRadius: 2,
-                boxShadow: normalSelected ? '0 8px 18px rgba(23,132,77,0.18)' : 'none',
+                borderRadius: 1.5,
+                boxShadow: normalSelected ? '0 4px 14px rgba(23,132,77,0.18)' : 'none',
               }}
             >
               {normalSelected ? 'Normal status applied' : 'Yes, everything is normal'}
@@ -767,7 +774,7 @@ export default function DailyReport() {
                 startIcon={<RefreshRoundedIcon />}
                 onClick={resetForm}
                 disabled={submitting}
-                sx={{ borderRadius: 2 }}
+                sx={{ borderRadius: 1.5 }}
               >
                 Reset
               </Button>
@@ -779,9 +786,9 @@ export default function DailyReport() {
                 onClick={submit}
                 disabled={submitting}
                 sx={{
-                  borderRadius: 2,
-                  boxShadow: '0 10px 22px rgba(23,132,77,0.20)',
-                  '&:hover': { boxShadow: '0 12px 26px rgba(23,132,77,0.26)' },
+                  borderRadius: 1.5,
+                  boxShadow: '0 6px 18px rgba(23,132,77,0.20)',
+                  '&:hover': { boxShadow: '0 8px 22px rgba(23,132,77,0.26)' },
                 }}
               >
                 {submitting ? 'Submitting...' : 'Submit Daily Status'}
@@ -801,7 +808,7 @@ export default function DailyReport() {
           severity="success"
           variant="filled"
           onClose={() => setSuccess(false)}
-          sx={{ borderRadius: 2 }}
+          sx={{ borderRadius: 1.5 }}
         >
           Daily status submitted successfully.
         </Alert>

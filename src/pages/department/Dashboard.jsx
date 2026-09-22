@@ -85,7 +85,7 @@ function MetricCard({
       variant="outlined"
       sx={{
         p: 2.25,
-        borderRadius: 3,
+        borderRadius: 2,
         minHeight: 130,
         bgcolor: '#FFFFFF',
         borderColor: '#E2E8F0',
@@ -141,7 +141,7 @@ function MetricCard({
           sx={{
             width: 44,
             height: 44,
-            borderRadius: 2.5,
+            borderRadius: 1.5,
             bgcolor: '#EEF5FB',
             color: '#0B5FA5',
             display: 'grid',
@@ -167,7 +167,7 @@ function SectionCard({
     <Paper
       variant="outlined"
       sx={{
-        borderRadius: 3,
+        borderRadius: 2,
         borderColor: '#E2E8F0',
         overflow: 'hidden',
         bgcolor: '#FFFFFF',

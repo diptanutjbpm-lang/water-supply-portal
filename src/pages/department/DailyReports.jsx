@@ -1175,7 +1175,7 @@ function DailyReports() {
       {error && (
         <Alert
           severity="error"
-          sx={{ mb: 2, borderRadius: 2.5 }}
+          sx={{ mb: 2, borderRadius: 1.5 }}
           onClose={() => setError('')}
         >
           {error}
@@ -1185,7 +1185,7 @@ function DailyReports() {
       {success && (
         <Alert
           severity="success"
-          sx={{ mb: 2, borderRadius: 2.5 }}
+          sx={{ mb: 2, borderRadius: 1.5 }}
           onClose={() => setSuccess('')}
         >
           {success}
@@ -1196,7 +1196,7 @@ function DailyReports() {
         variant="outlined"
         sx={{
           mb: 2,
-          borderRadius: 3,
+          borderRadius: 2,
           borderColor: '#DCE6EF',
           bgcolor: '#FFFFFF',
           overflow: 'hidden',
@@ -1318,7 +1318,7 @@ function DailyReports() {
       <Paper
         variant="outlined"
         sx={{
-          borderRadius: 3,
+          borderRadius: 2,
           borderColor: '#DCE6EF',
           bgcolor: '#FFFFFF',
           overflow: 'hidden',
@@ -1653,7 +1653,7 @@ function DailyReports() {
         maxWidth="sm"
         PaperProps={{
           sx: {
-            borderRadius: 3,
+            borderRadius: 2,
           },
         }}
       >
