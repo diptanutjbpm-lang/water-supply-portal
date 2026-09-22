@@ -636,6 +636,7 @@ export default function LoginPage() {
                                 : 'Show password'
                             }
                             onClick={() => setShowPassword((value) => !value)}
+                            onMouseDown={(e) => e.preventDefault()}
                           >
                             {showPassword ? (
                               <VisibilityOffRoundedIcon fontSize="small" />
