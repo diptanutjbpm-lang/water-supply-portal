@@ -16,7 +16,7 @@ import CalendarMonthRoundedIcon from '@mui/icons-material/CalendarMonthRounded'
 import { Outlet, useNavigate } from 'react-router-dom'
 import { useAuth } from '../auth/AuthContext'
 
-const TJB_LOGO_URL = 'https://tjb.tripura.gov.in/sites/default/files/inline-images/home.png'
+const TJB_LOGO_URL = '/logo.png'
 
 function formatToday() {
   return new Intl.DateTimeFormat('en-IN', {
@@ -94,7 +94,7 @@ export default function SDOLayout() {
                 letterSpacing: '-0.01em',
               }}
             >
-              Daily Outage Report
+              Tripura Jal Board
             </Typography>
             <Typography
               sx={{
@@ -104,7 +104,7 @@ export default function SDOLayout() {
                 lineHeight: 1.15,
               }}
             >
-              Government of Tripura
+              Daily Outage Report
             </Typography>
           </Box>
 
@@ -195,6 +195,16 @@ export default function SDOLayout() {
         </Paper>
 
         <Outlet />
+
+        {/* Footer */}
+        <Box sx={{ textAlign: 'center', mt: 4, mb: 2 }}>
+          <Typography variant="body2" sx={{ fontWeight: 600, color: 'text.secondary' }}>
+            Tripura Jal Board
+          </Typography>
+          <Typography variant="caption" sx={{ color: 'text.secondary' }}>
+            Government of Tripura
+          </Typography>
+        </Box>
       </Container>
     </Box>
   )

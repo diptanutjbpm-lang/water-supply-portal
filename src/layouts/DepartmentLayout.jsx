@@ -113,16 +113,19 @@ function DepartmentLayout() {
           }}
         >
           <Avatar
+            src="/logo.png"
             sx={{
               width: 48,
               height: 48,
               bgcolor: '#FFFFFF',
-              color: '#0B3558',
-              fontWeight: 800,
+              border: '2px solid rgba(255,255,255,0.75)',
+              '& img': {
+                objectFit: 'contain',
+                bgcolor: '#fff',
+                p: 0.35,
+              }
             }}
-          >
-            GT
-          </Avatar>
+          />
 
           <Box sx={{ minWidth: 0 }}>
             <Typography
@@ -439,6 +442,16 @@ function DepartmentLayout() {
           }}
         >
           <Outlet />
+
+          {/* Footer */}
+          <Box sx={{ textAlign: 'center', mt: 4, mb: 2 }}>
+            <Typography variant="body2" sx={{ fontWeight: 600, color: 'text.secondary' }}>
+              Tripura Jal Board
+            </Typography>
+            <Typography variant="caption" sx={{ color: 'text.secondary' }}>
+              Government of Tripura
+            </Typography>
+          </Box>
         </Box>
       </Box>
     </Box>

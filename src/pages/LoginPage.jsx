@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import {
   Alert,
+  Avatar,
   Box,
   Button,
   Card,
@@ -177,22 +178,20 @@ export default function LoginPage() {
             alignItems="center"
             spacing={1.6}
           >
-            <Box
+            <Avatar
+              src="/logo.png"
               sx={{
                 width: 54,
                 height: 54,
-                borderRadius: '50%',
-                bgcolor: '#FFFFFF',
-                color: '#0B3558',
-                display: 'grid',
-                placeItems: 'center',
-                fontWeight: 900,
-                fontSize: 16,
+                border: '2px solid rgba(255,255,255,0.75)',
                 boxShadow: '0 10px 28px rgba(0,0,0,0.16)',
+                '& img': {
+                  objectFit: 'contain',
+                  bgcolor: '#fff',
+                  p: 0.35,
+                }
               }}
-            >
-              GT
-            </Box>
+            />
 
             <Box>
               <Typography
@@ -383,21 +382,20 @@ export default function LoginPage() {
           }}
         >
           <Stack direction="row" spacing={1.4} alignItems="center">
-            <Box
+            <Avatar
+              src="/logo.png"
               sx={{
                 width: 46,
                 height: 46,
-                borderRadius: '50%',
-                bgcolor: '#10345F',
-                color: '#FFFFFF',
-                display: 'grid',
-                placeItems: 'center',
-                fontWeight: 900,
+                border: '2px solid rgba(255,255,255,0.75)',
                 boxShadow: '0 8px 20px rgba(16,52,95,0.22)',
+                '& img': {
+                  objectFit: 'contain',
+                  bgcolor: '#fff',
+                  p: 0.35,
+                }
               }}
-            >
-              GT
-            </Box>
+            />
 
             <Box minWidth={0}>
               <Typography fontSize={11.5} color="text.secondary">
@@ -725,6 +723,16 @@ export default function LoginPage() {
                 Water Supply Monitoring System
               </Typography>
             </Stack>
+
+            {/* Footer */}
+            <Box sx={{ textAlign: 'center', mt: 4 }}>
+              <Typography variant="body2" sx={{ fontWeight: 600, color: 'text.secondary' }}>
+                Tripura Jal Board
+              </Typography>
+              <Typography variant="caption" sx={{ color: 'text.secondary' }}>
+                Government of Tripura
+              </Typography>
+            </Box>
           </Box>
         </Box>
       </Box>
