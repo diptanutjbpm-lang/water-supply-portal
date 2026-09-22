@@ -453,18 +453,6 @@ export default function LoginPage() {
               >
                 Welcome back
               </Typography>
-
-              <Typography
-                sx={{
-                  mt: 1,
-                  color: 'text.secondary',
-                  fontSize: 14,
-                  lineHeight: 1.6,
-                }}
-              >
-                Sign in using the mobile number and password issued by the
-                department. Your SDO or Admin workspace will open automatically.
-              </Typography>
             </Box>
 
             <Card
